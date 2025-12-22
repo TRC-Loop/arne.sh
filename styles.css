@@ -232,11 +232,8 @@ footer a {
 	text-decoration: none;
 }
 
-.copyright::before {
-	content: "©";
-	margin-right: 0.4ch;
-	position: relative;
-	top: -0.05em;
+footer a:hover {
+	opacity: 0.5;
 }
 
 @media (max-width: 768px) {
