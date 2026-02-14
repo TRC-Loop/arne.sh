@@ -67,10 +67,16 @@
 		<p class="role">
 			&gt; DevOps · Backend · Frontend
 		</p>
+		<div class="projects-container">
 
-		<a class="projects-btn" href="https://github.com/TRC-Loop?tab=repositories" target="_blank">
-			view projects →
-		</a>
+			<a class="projects-btn" href="https://github.com/TRC-Loop?tab=repositories" target="_blank">
+				view projects →
+			</a>
+
+			<a class="projects-btn" href="https://blog.arne.sh" target="_blank">
+				visit blog →
+			</a>
+		</div>
 
 		<section class="skills">
 
@@ -110,7 +116,7 @@
 				<img src="/icons/brand-css3.svg" alt="CSS">
 			</span>
 
-			<span class="skill" data-tip="SQL · Databases (SQLite)">
+			<span class="skill" data-tip="SQL · Databases (SQLite, PostgreSQL)">
 				<img src="/icons/sql.svg" alt="SQL">
 			</span>
 
@@ -119,14 +125,30 @@
 			</span>
 
 		</section>
+		<div id="pgp-modal" class="modal">
+			<div class="modal-content">
+				<h2>Public PGP Key</h2>
+				<pre id="pgp-text"></pre>
+				<div class="modal-actions">
+					<a href="keys/publickey.asc" download class="modal-btn">
+						<img src="icons/download.svg" alt="Download"> Download
+					</a>
+					<button id="copy-btn" class="modal-btn">
+						<img src="icons/copy.svg" alt="Copy"> Copy
+					</button>
+				</div>
+				<span class="modal-close">&times;</span>
+			</div>
+		</div>
 	</main />
 
 	<footer>
 		<a href="https://gmrze.net/imprint">Imprint</a>
 		<a href="https://status.gmrze.com">Status</a>
-		<span class="copyright">(C) 2025 Arne</span>
+		<a href="#" id="pgp-link">PGP Key</a>
+		<span class="copyright">(C) 2026 Arne</span>
 	</footer>
-
+	<script src="scripts.js" defer></script>
 </body>
 
 </html>
