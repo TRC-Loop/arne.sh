@@ -1,14 +1,11 @@
 [phases.setup]
-nixPkgs = []
-
-[phases.install]
-cmds = []
 
 [phases.build]
-cmds = []
+
+[phases.install]
 
 [start]
 cmd = "nginx -g 'daemon off;'"
 
 [staticAssets]
-directory = "/"
+dir = "."
