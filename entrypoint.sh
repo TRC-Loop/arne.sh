@@ -15,13 +15,10 @@ else
         --baseURL /stone
 fi
 
-# Create admin user if no users exist yet
-USER_COUNT=$(filebrowser users ls -d /data/filebrowser.db 2>/dev/null | grep -c '@' || echo 0)
-if [ "$USER_COUNT" -eq 0 ]; then
-    filebrowser users add admin ChangeMe12345 \
-        -d /data/filebrowser.db \
-        --perm.admin
-fi
+# Add admin user — silently succeeds if already exists
+filebrowser users add admin ChangeMe12345 \
+    -d /data/filebrowser.db \
+    --perm.admin 2>/dev/null || true
 
 filebrowser \
     -d /data/filebrowser.db \
