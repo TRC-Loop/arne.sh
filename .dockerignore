@@ -1,0 +1,10 @@
+# Config & scripts — not part of the web root
+docker-compose.yml
+nginx.conf
+entrypoint.sh
+filebrowser/
+.dockerignore
+.gitignore
+.gitattributes
+memory/
+*.md
