@@ -8,6 +8,10 @@ if [ ! -f /data/filebrowser.db ]; then
         -r /srv \
         --port 8080 \
         --address 127.0.0.1
+    # Create initial admin user (change password immediately after first login)
+    filebrowser users add admin ChangeMe12345 \
+        -d /data/filebrowser.db \
+        --perm.admin
 else
     # Subsequent runs: force baseURL to stay correct even if volume is old
     filebrowser config set \
