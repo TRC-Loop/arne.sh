@@ -8,6 +8,7 @@ RUN wget -qO- https://github.com/filebrowser/filebrowser/releases/latest/downloa
 
 # Nginx config — proxies /files to filebrowser running on localhost:8080
 COPY nginx.conf /etc/nginx/conf.d/default.conf
+COPY filebrowser.json /filebrowser.json
 
 # Startup script — launches filebrowser then nginx in foreground
 COPY entrypoint.sh /entrypoint.sh
@@ -17,7 +18,7 @@ RUN chmod +x /entrypoint.sh
 WORKDIR /usr/share/nginx/html/
 COPY . .
 # Remove config files that landed here via COPY . .
-RUN rm -f nginx.conf entrypoint.sh
+RUN rm -f nginx.conf entrypoint.sh filebrowser.json
 
 # /srv  = uploaded files  (mount a persistent volume here in Coolify)
 # /data = filebrowser DB  (mount a persistent volume here in Coolify)
