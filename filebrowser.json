@@ -1,8 +1,0 @@
-{
-  "port": 8080,
-  "baseURL": "/files",
-  "address": "127.0.0.1",
-  "log": "stdout",
-  "database": "/data/filebrowser.db",
-  "root": "/srv"
-}
