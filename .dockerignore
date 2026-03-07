@@ -1,7 +1,5 @@
-# Config & scripts — not part of the web root
+# Not part of the web root
 docker-compose.yml
-nginx.conf
-entrypoint.sh
 filebrowser/
 .dockerignore
 .gitignore

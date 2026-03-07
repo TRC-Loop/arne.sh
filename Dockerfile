@@ -13,9 +13,11 @@ COPY nginx.conf /etc/nginx/conf.d/default.conf
 COPY entrypoint.sh /entrypoint.sh
 RUN chmod +x /entrypoint.sh
 
-# Site files (.dockerignore keeps config files out of the web root)
+# Site files
 WORKDIR /usr/share/nginx/html/
 COPY . .
+# Remove config files that landed here via COPY . .
+RUN rm -f nginx.conf entrypoint.sh
 
 # /srv  = uploaded files  (mount a persistent volume here in Coolify)
 # /data = filebrowser DB  (mount a persistent volume here in Coolify)
