@@ -2,14 +2,23 @@ services:
   web:
     build: .
     ports:
-      - "8196:80"
+      - '8196:80'
     volumes:
-      - files:/srv
-      - filebrowser_db:/data
+      - 'files:/srv'
+      - 'filebrowser_db:/data'
     restart: unless-stopped
-
 volumes:
   files:
     name: arnesh_files
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: /mnt/data/arnesh/files
   filebrowser_db:
     name: arnesh_filebrowser_db
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: /mnt/data/arnesh/db
