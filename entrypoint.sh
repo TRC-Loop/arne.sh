@@ -20,6 +20,11 @@ filebrowser users add admin ChangeMe12345 \
     -d /data/filebrowser.db \
     --perm.admin 2>/dev/null || true
 
+# Ensure nginx (runs as 'nginx' user) can read everything in /srv
+# and that filebrowser creates world-readable dirs/files going forward
+chmod -R a+rX /srv 2>/dev/null || true
+umask 022
+
 filebrowser \
     -d /data/filebrowser.db \
     -r /srv \
