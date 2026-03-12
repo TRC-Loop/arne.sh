@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Index</title>
+  <style>
+    @font-face {
+      font-display: swap;
+      font-family: 'Space Mono';
+      font-style: normal;
+      font-weight: 400;
+      src: url('/space-mono-v17-latin-regular.woff2') format('woff2'),
+           url('/space-mono-v17-latin-regular.ttf') format('truetype');
+    }
+    @font-face {
+      font-display: swap;
+      font-family: 'Space Mono';
+      font-style: italic;
+      font-weight: 400;
+      src: url('/space-mono-v17-latin-italic.woff2') format('woff2'),
+           url('/space-mono-v17-latin-italic.ttf') format('truetype');
+    }
+    @font-face {
+      font-display: swap;
+      font-family: 'Space Mono';
+      font-style: normal;
+      font-weight: 700;
+      src: url('/space-mono-v17-latin-700.woff2') format('woff2'),
+           url('/space-mono-v17-latin-700.ttf') format('truetype');
+    }
+  </style>
+  <link rel="stylesheet" href="/.fancyindex/style.css">
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      var path = decodeURIComponent(window.location.pathname);
+      document.getElementById('path').textContent = path;
+      document.title = 'Index of ' + path;
+    });
+  </script>
+</head>
+<body>
+<div id="wrapper">
+  <div id="header">
+    <a href="/" id="home-link">arne.sh</a>
+    <h1 id="title">Index of <span id="path"></span></h1>
+  </div>

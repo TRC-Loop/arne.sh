@@ -6,3 +6,7 @@ filebrowser/
 .gitattributes
 memory/
 *.md
+Dockerfile
+nginx.conf
+entrypoint.sh
+CNAME

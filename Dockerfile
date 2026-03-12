@@ -1,12 +1,15 @@
 FROM nginx:alpine
 
+# fancyindex: nicer directory listings with sizes, dates, sorting
+RUN apk add --no-cache nginx-mod-http-fancyindex
+
 # Download filebrowser binary
 RUN wget -qO- https://github.com/filebrowser/filebrowser/releases/latest/download/linux-amd64-filebrowser.tar.gz \
     | tar -xzf - -C /usr/local/bin filebrowser \
     && chmod +x /usr/local/bin/filebrowser \
     && mkdir -p /srv /data
 
-# Nginx config — proxies /files to filebrowser running on localhost:8080
+# Nginx config — proxies /upload to filebrowser, fancyindex for /stone/
 COPY nginx.conf /etc/nginx/conf.d/default.conf
 
 # Startup script — launches filebrowser then nginx in foreground

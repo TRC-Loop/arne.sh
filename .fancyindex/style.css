@@ -1,0 +1,155 @@
+/* Tokyo Night theme — matches arne.sh */
+
+:root {
+  --bg:      #1a1b26;
+  --bg2:     #16171f;
+  --fg:      #a9b1d6;
+  --fg-dim:  #565f89;
+  --accent:  #7aa2f7;
+  --green:   #9ece6a;
+  --border:  #414868;
+  --hover:   #1f2335;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  background: var(--bg);
+  color: var(--fg);
+  font-family: 'Space Mono', 'Courier New', monospace;
+  font-size: 14px;
+  min-height: 100vh;
+}
+
+#wrapper {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem;
+}
+
+/* ── Header ─────────────────────────────────────── */
+
+#header {
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--border);
+}
+
+#home-link {
+  color: var(--fg-dim);
+  text-decoration: none;
+  font-size: 12px;
+  letter-spacing: 0.05em;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+#home-link:hover { color: var(--accent); }
+
+h1, #title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--fg);
+  word-break: break-all;
+}
+
+#path { color: var(--accent); }
+
+/* ── Table ───────────────────────────────────────── */
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+
+thead tr {
+  border-bottom: 1px solid var(--border);
+}
+
+th {
+  padding: 0.5rem 0.75rem;
+  text-align: left;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--fg-dim);
+  white-space: nowrap;
+}
+
+th a {
+  color: var(--fg-dim);
+  text-decoration: none;
+}
+th a:hover { color: var(--accent); }
+
+/* Column widths */
+th.link  { width: auto; }
+th.size  { width: 8rem; text-align: right; }
+th.date  { width: 13rem; text-align: right; }
+
+/* ── Rows ────────────────────────────────────────── */
+
+tbody tr {
+  border-bottom: 1px solid transparent;
+  transition: background 0.1s;
+}
+
+tbody tr:hover {
+  background: var(--hover);
+  border-color: var(--border);
+}
+
+td {
+  padding: 0.45rem 0.75rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Name column: allow wrap */
+td:first-child {
+  overflow: visible;
+  white-space: normal;
+  word-break: break-all;
+}
+
+td:nth-child(2) { text-align: right; color: var(--fg-dim); font-size: 13px; }
+td:nth-child(3) { text-align: right; color: var(--fg-dim); font-size: 13px; }
+
+/* ── Links ───────────────────────────────────────── */
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+}
+a:hover { text-decoration: underline; }
+
+/* Directories */
+tr.entry a[href$="/"] {
+  color: var(--green);
+}
+tr.entry a[href$="/"]:hover {
+  color: var(--green);
+  text-decoration: underline;
+}
+
+/* Parent dir row */
+tr.back td:first-child::before {
+  content: "📁 ";
+}
+
+/* ── Footer ──────────────────────────────────────── */
+
+#footer {
+  margin-top: 2rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border);
+  font-size: 12px;
+  color: var(--fg-dim);
+}
+
+#footer a {
+  color: var(--fg-dim);
+}
+#footer a:hover { color: var(--accent); }
