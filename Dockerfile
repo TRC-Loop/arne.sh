@@ -1,7 +1,9 @@
-FROM nginx:alpine
+FROM alpine:3.21
 
-# fancyindex: nicer directory listings with sizes, dates, sorting
-RUN apk add --no-cache nginx-mod-http-fancyindex
+# Use Alpine's own nginx so nginx-mod-http-fancyindex is version-compatible.
+# The official nginx:alpine image is a custom build; its modules can't be
+# installed from Alpine's package repos.
+RUN apk add --no-cache nginx nginx-mod-http-fancyindex
 
 # Download filebrowser binary
 RUN wget -qO- https://github.com/filebrowser/filebrowser/releases/latest/download/linux-amd64-filebrowser.tar.gz \
