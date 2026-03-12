@@ -11,8 +11,9 @@ RUN wget -qO- https://github.com/filebrowser/filebrowser/releases/latest/downloa
     && chmod +x /usr/local/bin/filebrowser \
     && mkdir -p /srv /data
 
-# Nginx config — proxies /upload to filebrowser, fancyindex for /stone/
-COPY nginx.conf /etc/nginx/conf.d/default.conf
+# Full nginx.conf — owns the entire config so log_format/limit_req_zone
+# are in the http{} context where they belong (conf.d snippets can't do that)
+COPY nginx.conf /etc/nginx/nginx.conf
 
 # Startup script — launches filebrowser then nginx in foreground
 COPY entrypoint.sh /entrypoint.sh
