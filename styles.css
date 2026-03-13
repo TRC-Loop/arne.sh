@@ -53,6 +53,22 @@ body {
 	min-height: 100vh;
 }
 
+/* Scanlines */
+body::after {
+	content: '';
+	position: fixed;
+	inset: 0;
+	pointer-events: none;
+	z-index: 8999;
+	background: repeating-linear-gradient(
+		0deg,
+		transparent,
+		transparent 3px,
+		rgba(0, 0, 0, 0.025) 3px,
+		rgba(0, 0, 0, 0.025) 4px
+	);
+}
+
 /* Entry animations */
 @keyframes fadeUp {
 	from {
@@ -305,6 +321,12 @@ footer a:hover {
 }
 
 /* Modal */
+@keyframes modalExpand {
+	0%   { transform: scaleX(0)   scaleY(0.02); }
+	40%  { transform: scaleX(1)   scaleY(0.02); }
+	100% { transform: scaleX(1)   scaleY(1);    }
+}
+
 .modal {
 	display: none;
 	position: fixed;
@@ -322,13 +344,16 @@ footer a:hover {
 	background-color: var(--bg);
 	margin: 5% auto;
 	padding: 2rem;
-	border: 1px solid var(--border);
+	border: 1px solid var(--accent);
 	width: 90%;
 	max-width: 700px;
 	text-align: center;
-	border-radius: 8px;
+	border-radius: 0;
 	color: var(--fg);
 	position: relative;
+	overflow: hidden;
+	transform-origin: center top;
+	animation: modalExpand 0.5s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
 .modal-content pre {

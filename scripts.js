@@ -38,6 +38,10 @@ copyBtn.addEventListener('click', async () => {
 
 function openModal() {
 	modal.style.display = 'block';
+	const content = modal.querySelector('.modal-content');
+	content.style.animation = 'none';
+	content.offsetHeight; // force reflow
+	content.style.animation = '';
 	window.scrollTo(0, 0);
 }
 
